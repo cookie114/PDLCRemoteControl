@@ -231,7 +231,7 @@ public class RemoteControlActivity extends Activity implements View.OnClickListe
         }
     }
 
-    //局域网内使用,与系统提供的remoteIME.apk功能一至，在系统范围内起作用
+    //局域网内使用，在pdlcPlayer运行的时候才起作用
     private void postNetKeyOld(final int code)
     {
         if(addr == null){
@@ -292,7 +292,7 @@ public class RemoteControlActivity extends Activity implements View.OnClickListe
 
     }
 
-    //局域网内使用，在pdlcPlayer运行的时候才起作用
+    //局域网内使用,与系统提供的remoteIME.apk功能一至，在系统范围内起作用
     private void postNetKey(final int code)
     {
         if(tcpSocket == null){
@@ -392,7 +392,7 @@ public class RemoteControlActivity extends Activity implements View.OnClickListe
                             try {
                                 socket.send(packet);//发送报文
                                 socket.setSoTimeout(10);
-                                socket.receive(packet);              //接收多播报文，程序停滞等待直到接收到报文
+                                socket.receive(packet);
 
                                 DeviceInfo info = new DeviceInfo();
                                 info.ID = packet.getSocketAddress().toString();
